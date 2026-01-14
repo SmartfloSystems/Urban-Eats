@@ -1,82 +1,91 @@
 <!DOCTYPE html>
 <html class="dark scroll-smooth" lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Urban Eats | Bold Gastro-Pub</title>
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    
+
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Tailwind Config -->
     <script>
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#ea2a33",
-                        "mustard": "#fbbf24",
-                        "background-light": "#f8f6f6",
-                        "background-dark": "#1a1a1a",
-                    },
-                    fontFamily: {
-                        "display": ["Space Grotesk", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                },
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#ea2a33",
+              mustard: "#fbbf24",
+              "background-light": "#f8f6f6",
+              "background-dark": "#1a1a1a",
             },
-        }
+            fontFamily: {
+              display: ["Space Grotesk", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
     </script>
-    
+
     <!-- Custom Styles for Ticker and Overlay -->
     <style>
-        .ticker-wrap {
-            overflow: hidden;
-            white-space: nowrap;
+      .ticker-wrap {
+        overflow: hidden;
+        white-space: nowrap;
+      }
+      .ticker-content {
+        display: inline-block;
+        animation: ticker 20s linear infinite;
+      }
+      @keyframes ticker {
+        0% {
+          transform: translateX(0);
         }
-        .ticker-content {
-            display: inline-block;
-            animation: ticker 20s linear infinite;
+        100% {
+          transform: translateX(-50%);
         }
-        @keyframes ticker {
-            0% { transform: translateX(0); } 
-            100% { transform: translateX(-50%); }
-        }
-        .grainy-overlay {
-            background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDfWbMv7kLr6KL6PH9Je_OYnFr4SuR31F-JbUXxCkb6sDQizj1fqfg8TErMwBUILKkZTyAMGTy9UAjlMwXZ0I1nyN1_E-2CIOIFsxJZc_oTHENhV9kMykYfw7kAXz8l1jOGNqi2BnHCNC9rnbcYu-ZBYAySwiSqASScMnzE0ki1U5TK2SqEWkcENXDhE1GqO0m-YPUsoQ41B9KJoFVo5prEbuuODVCe_ZCuCo28zRIl6P2u9XBv2-oY0VwYunvaihBx0b6M9Z_urpIs);
-            opacity: 0.05;
-            pointer-events: none;
-        }
-        /* Utility for material symbols */
-        .material-symbols-outlined {
-            font-variation-settings:
-            'FILL' 1,
-            'wght' 400,
-            'GRAD' 0,
-            'opsz' 24
-        }
+      }
+      .grainy-overlay {
+        background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDfWbMv7kLr6KL6PH9Je_OYnFr4SuR31F-JbUXxCkb6sDQizj1fqfg8TErMwBUILKkZTyAMGTy9UAjlMwXZ0I1nyN1_E-2CIOIFsxJZc_oTHENhV9kMykYfw7kAXz8l1jOGNqi2BnHCNC9rnbcYu-ZBYAySwiSqASScMnzE0ki1U5TK2SqEWkcENXDhE1GqO0m-YPUsoQ41B9KJoFVo5prEbuuODVCe_ZCuCo28zRIl6P2u9XBv2-oY0VwYunvaihBx0b6M9Z_urpIs);
+        opacity: 0.05;
+        pointer-events: none;
+      }
+      /* Utility for material symbols */
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
     </style>
-<script type="importmap">
-{
-  "imports": {
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
-  }
-}
-</script>
-</head>
-<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white selection:bg-primary selection:text-white">
+    <script type="importmap">
+      {
+        "imports": {
+          "react/": "https://esm.sh/react@^19.2.3/",
+          "react": "https://esm.sh/react@^19.2.3",
+          "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+        }
+      }
+    </script>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white selection:bg-primary selection:text-white"
+  >
     <div id="root"></div>
-</body>
+    <script type="module" src="/index.tsx"></script>
+  </body>
 </html>
